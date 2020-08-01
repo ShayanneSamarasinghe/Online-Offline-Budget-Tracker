@@ -10,9 +10,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <title>Budget Tracker</title>
+  
+  <link rel="manifest" href = "manifest.json">
+
+
+<title>Budget Tracker</title>
 </head>
-<body>
+<body onload="initApp()">
   <div class="wrapper">
     <div class="total">
       <div class="total">Your total is: $<span id="total">0</span></div>
@@ -43,5 +47,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
+  <script>
+
+    async function initApp(){
+      if (!navigator.serviceWorker){
+        console.log(`No service workers, quitting`)
+        return
+      }
+
+      navigator.serviceWorker.register("service-worker.js")
+    }
+  </script>
 </body>
 </html>
