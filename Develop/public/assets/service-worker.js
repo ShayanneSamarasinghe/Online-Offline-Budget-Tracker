@@ -3,11 +3,11 @@ const DATA_CACHE_NAME = "data-cache-v1"
 
 const filestoCache = [
     "/",
-    "/db.js",
-    "/index.js",
-    "/manifest.json",
-    "/icons/icon-192x192.png",
-    "/icons/icon-512x512.png",
+    "/assets/style.css",
+    "/assets/index.js",
+    "/assets/manifest.json",
+    "/assets/icons/icon-192x192.png",
+    "/assets/icons/icon-512x512.png",
     
 
 ]
@@ -45,15 +45,15 @@ self.addEventListener("fetch", function(event){
         
     }
     event.respondWith(
-        fetch(event.request).catch(function(){
-            return caches.match(event.request).then(function(response){
-                if (response) {
-                    return response
-                } else if (event.request.headers.get("accept").includes("text/html"))
-                return caches.match("/")
-            })
+        fetch(event.request).catch(function() {
+          return caches.match(event.request).then(function(response) {
+            if (response) {
+              return response;
+            } else if (event.request.headers.get("accept").includes("text/html")) {
+            
+              return caches.match("/");
+            }
+          });
         })
-    )
-
-
-})
+      );
+});
