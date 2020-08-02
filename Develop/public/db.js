@@ -55,8 +55,8 @@ function checkDatabase() {
         })
         .then( function(){
         //   delete records if successful
-        //   const transaction = db.transaction(["pending"], "readwrite");
-        //   const store = transaction.objectStore("pending");
+          const transaction = db.transaction(["pending"], "readwrite");
+          const store = transaction.objectStore("pending");
           store.clear()
         })
       }

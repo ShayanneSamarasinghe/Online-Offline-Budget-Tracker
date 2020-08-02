@@ -1,9 +1,9 @@
-const CACHE_NAME = "site-cache";
-const DATA_CACHE_NAME = "data-cache";
+var CACHE_NAME = "site-cache";
+var DATA_CACHE_NAME = "data-cache";
 
 const filesToCache = [
   "/",
-  "/assets/db.js",
+  "/db.js",
   "/assets/index.js",
   "/manifest.json",
   "/assets/styles.css",
